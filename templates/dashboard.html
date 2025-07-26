@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2 class="mb-4">My Projects</h2>
+<a href="{{ url_for('new_project') }}" class="btn btn-success mb-3">+ New Project</a>
+{% if projects %}
+    <div class="list-group">
+        {% for project in projects %}
+            <div class="list-group-item">
+                <h5 class="mb-1">{{ project.name }}</h5>
+                <p class="mb-1">{{ project.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-warning">You have no projects yet.</div>
+{% endif %}
+{% endblock %}
